@@ -1,0 +1,97 @@
+# Project information
+site_name: From Pandas to Polars
+site_url: https://jrycw.github.io/ezp2p
+site_author: Jerry Wu
+site_description: >-
+  This repository is designed to help users familiar with Pandas quickly transition to using Polars.
+
+# Repository
+repo_name: jrycw/ezp2p
+repo_url: https://github.com/jrycw/ezp2p
+
+
+nav:
+  - Introduction: index.md
+  - Contexts:
+    - contexts/select.md
+    - contexts/with_columns.md
+    - contexts/filter.md
+    - contexts/group_by.md
+  - Expressions:
+    - expressions/operators.md
+    - expressions/column_selections.md
+    - expressions/functions.md
+    - expressions/casting.md
+    - expressions/strings.md
+    - expressions/lists.md
+    - expressions/aggregation.md
+    - expressions/window_functions.md
+    - expressions/folds.md
+    - expressions/structs.md
+  - Topics:
+    - topics/temporal.md
+    - topics/missing_data.md
+
+# Theme
+theme:
+  name: material
+  
+  icon:
+    repo: fontawesome/brands/github
+
+  language: en
+
+  features:
+    - content.code.copy
+    - navigation.tracking
+    - navigation.instant
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.footer
+    - content.tabs.link
+
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra_css:
+  - _build/css/extra.css
+
+# Preview controls
+strict: true
+
+# Formatting options
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets:
+      base_path: ['.','docs/src/']
+      check_paths: true
+      dedent_subsections: true
+  - footnotes
+
+plugins:
+  - search:
+      lang: en
+  - markdown-exec
