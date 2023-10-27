@@ -1,0 +1,14 @@
+mkdocs-material==9.4.5
+markdown-exec
+mkdocs-macros-plugin
+mkdocs-material-extensions
+mkdocs-minify-plugin
+mkdocs-redirects
+markdown-exec[ansi]
+polars
+pandas
+pyarrow
+graphviz
+matplotlib
+PyGithub
+autopep8
