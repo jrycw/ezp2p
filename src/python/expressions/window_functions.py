@@ -90,7 +90,7 @@ print(out_pl)
 # --8<-- [start:pd_example]
 
 
-def process_speed(df_):
+def _process_speed(df_):
     return (df_
             .loc[:, ["Type 1", "Speed", "Name"]]
             .sort_values("Speed", ascending=False)
@@ -102,7 +102,7 @@ def process_speed(df_):
             )
 
 
-def process_attack(df_):
+def _process_attack(df_):
     return (df_
             .loc[:, ["Type 1", "Attack", "Name"]]
             .sort_values("Attack", ascending=False)
@@ -114,7 +114,7 @@ def process_attack(df_):
             )
 
 
-def process_name(df_):
+def _process_name(df_):
     return (df_
             .loc[:, ["Type 1", "Name"]]
             .sort_values("Name")
@@ -127,9 +127,9 @@ def process_name(df_):
 
 
 def window_pipeline(df_):
-    s_speed = process_speed(df_)
-    s_attack = process_attack(df_)
-    s_name = process_name(df_)
+    s_speed = _process_speed(df_)
+    s_attack = _process_attack(df_)
+    s_name = _process_name(df_)
     return pd.concat([s_speed, s_attack, s_name], axis="columns")
 
 
