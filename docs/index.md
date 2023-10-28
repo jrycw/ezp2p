@@ -102,4 +102,4 @@ Namespaces in `Polars` are akin to accessors in `Pandas`. However, `Polars` offe
 Lazy is at the core of `Polars` and offers numerous advantages compared to the eager mode. For a more in-depth understanding, you should refer to the [user guide](https://pola-rs.github.io/polars/user-guide/lazy/using/).
 
 ### Missing data
-In `Polars`, missing data is consistently represented as a `null` value. Additionally, `Polars` permits the use of `Not a Number` or `NaN` values for float columns. It's important to avoid conflating these two concepts." 
+In `Polars`, missing data is consistently represented as a `null` value. Additionally, `Polars` permits the use of `Not a Number` or `NaN` values for float columns. It's important to avoid conflating these two concepts.
