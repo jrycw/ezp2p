@@ -214,7 +214,7 @@ def _create_alpha_cols(df_):
             )
 
 
-def _process_alpha_gender(df_):
+def process_alpha_gender(df_):
     return (pd
             .concat([df_, _create_alpha_cols(df_)], axis="columns")
             .assign(gender=lambda df_: df_pd.loc[df_.alpha_index.tolist(), ["gender", "state"]].set_index("state").gender)
@@ -229,7 +229,7 @@ out_pd = (df_pd
           .agg(youngest=("shown_name", "first"),
                oldest=("shown_name", "last"),
                alpha_info=("shown_name", get_alpha_info))
-          .pipe(_process_alpha_gender)
+          .pipe(process_alpha_gender)
           .sort_index()
           .reset_index()
           .head()
