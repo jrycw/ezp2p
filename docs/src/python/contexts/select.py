@@ -86,8 +86,8 @@ out_pd = (df_pd
           .assign(**{
               "nrs": lambda df_: df_.nrs.sum(),
               "names": lambda df_: df_.names.sort_values().reset_index(drop=True),
-              "first name": lambda _: df_pd.names.iloc[0],
-              "10xnrs": lambda _: df_pd.nrs.mean() * 10})
+              "first name": df_pd.names.iloc[0],
+              "10xnrs": df_pd.nrs.mean() * 10})
           .drop(columns=df_pd.columns.drop(["nrs", "names"]))
           )
 print(out_pd)

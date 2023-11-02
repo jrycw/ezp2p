@@ -5,6 +5,7 @@ import pandas as pd
 import polars as pl
 
 pl.enable_string_cache()
+pd.set_option('display.max_seq_items', 3)
 url = "https://theunitedstates.io/congress-legislators/legislators-historical.csv"
 # --8<-- [end:setup]
 
@@ -58,7 +59,7 @@ print(out_pl)
 
 # --8<-- [start:pd_basic_agg]
 out_pd = (df_pd
-          .assign(count=lambda df_: 0)
+          .assign(count=0)
           .groupby("first_name", observed=True)
           .agg(count=("first_name", "size"),
                gender=("gender", list),

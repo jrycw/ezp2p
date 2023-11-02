@@ -2,7 +2,7 @@
 import pandas as pd
 import polars as pl
 
-data = {"nrs": [5, 4, 3, 2, 1],
+data = {"nrs": [4, 3, 1, 5, 2],
         "names": ["foo", "ham", "spam", "egg", "baz"]}
 df_pl = pl.DataFrame(data)
 df_pd = pd.DataFrame(data)
