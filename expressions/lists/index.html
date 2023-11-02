@@ -932,6 +932,8 @@
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                     <span class="s2">&quot;E2 E0 15 7 8 10 E1 24 17 13 6&quot;</span><span class="p">,</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                     <span class="s2">&quot;14 8 E0 16 22 24 E1&quot;</span><span class="p">]</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_seq_items&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </span></code></pre></div>
 <p></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Polars_df</label><label for="__tabbed_1_2">Pandas_df</label></div>
@@ -998,12 +1000,12 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>          <span class="p">)</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">out_pd</span><span class="p">)</span>
 </span></code></pre></div>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>     station                                       temperatures
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>0  Station 1                [20, 5, 5, E1, 7, 13, 19, 9, 6, 20]
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1  Station 2  [18, 8, 16, 11, 23, E2, 8, E2, E2, E2, 90, 70,...
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2  Station 3                    [19, 24, E9, 16, 6, 12, 10, 22]
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3  Station 4          [E2, E0, 15, 7, 8, 10, E1, 24, 17, 13, 6]
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>4  Station 5                        [14, 8, E0, 16, 22, 24, E1]
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>     station       temperatures
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>0  Station 1    [20, 5, 5, ...]
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1  Station 2   [18, 8, 16, ...]
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2  Station 3  [19, 24, E9, ...]
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3  Station 4  [E2, E0, 15, ...]
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>4  Station 5   [14, 8, E0, ...]
 </span></code></pre></div><div class="markdown-exec"></div>
 </p>
 </div>
@@ -1051,12 +1053,12 @@
 </span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>          <span class="p">)</span>
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">out_pd</span><span class="p">)</span>
 </span></code></pre></div>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>     station                                       temperatures          top3      bottom_3  obs
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>0  Station 1                [20, 5, 5, E1, 7, 13, 19, 9, 6, 20]    [20, 5, 5]    [9, 6, 20]   10
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1  Station 2  [18, 8, 16, 11, 23, E2, 8, E2, E2, E2, 90, 70,...   [18, 8, 16]  [90, 70, 40]   13
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2  Station 3                    [19, 24, E9, 16, 6, 12, 10, 22]  [19, 24, E9]  [12, 10, 22]    8
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3  Station 4          [E2, E0, 15, 7, 8, 10, E1, 24, 17, 13, 6]  [E2, E0, 15]   [17, 13, 6]   11
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>4  Station 5                        [14, 8, E0, 16, 22, 24, E1]   [14, 8, E0]  [22, 24, E1]    7
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>     station       temperatures          top3      bottom_3  obs
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>0  Station 1    [20, 5, 5, ...]    [20, 5, 5]    [9, 6, 20]   10
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1  Station 2   [18, 8, 16, ...]   [18, 8, 16]  [90, 70, 40]   13
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2  Station 3  [19, 24, E9, ...]  [19, 24, E9]  [12, 10, 22]    8
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3  Station 4  [E2, E0, 15, ...]  [E2, E0, 15]   [17, 13, 6]   11
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>4  Station 5   [14, 8, E0, ...]   [14, 8, E0]  [22, 24, E1]    7
 </span></code></pre></div><div class="markdown-exec"></div>
 </p>
 </div>

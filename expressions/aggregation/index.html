@@ -940,7 +940,8 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">pl</span><span class="o">.</span><span class="n">enable_string_cache</span><span class="p">()</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://theunitedstates.io/congress-legislators/legislators-historical.csv&quot;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_seq_items&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://theunitedstates.io/congress-legislators/legislators-historical.csv&quot;</span>
 </span></code></pre></div>
 <p></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Polars_df</label><label for="__tabbed_1_2">Pandas_df</label></div>
@@ -1055,7 +1056,7 @@
 </div>
 <div class="tabbed-block">
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">out_pd</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_pd</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>          <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>          <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>          <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>          <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">),</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>               <span class="n">gender</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span>
@@ -1066,12 +1067,12 @@
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>          <span class="p">)</span>
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">out_pd</span><span class="p">)</span>
 </span></code></pre></div>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  first_name  count                                             gender  last_name
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>0       John   1256  [M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, ...     Walker
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1    William   1022  [M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, ...        Few
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2      James    714  [M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, ...  Armstrong
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3     Thomas    454  [M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, ...     Tucker
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>4    Charles    439  [M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, ...    Carroll
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  first_name  count          gender  last_name
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>0       John   1256  [M, M, M, ...]     Walker
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1    William   1022  [M, M, M, ...]        Few
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2      James    714  [M, M, M, ...]  Armstrong
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3     Thomas    454  [M, M, M, ...]     Tucker
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>4    Charles    439  [M, M, M, ...]    Carroll
 </span></code></pre></div><div class="markdown-exec"></div>
 </p>
 </div>
@@ -1100,10 +1101,10 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│ ---   ┆ ---  ┆ --- │
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│ cat   ┆ u32  ┆ u32 │
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>╞═══════╪══════╪═════╡
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ NJ    ┆ 0    ┆ 3   │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│ CT    ┆ 0    ┆ 3   │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ CT    ┆ 0    ┆ 3   │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│ NJ    ┆ 0    ┆ 3   │
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ NC    ┆ 1    ┆ 2   │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ MA    ┆ 0    ┆ 1   │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ SC    ┆ 0    ┆ 1   │
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ PA    ┆ 1    ┆ 1   │
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>└───────┴──────┴─────┘
 </span></code></pre></div><div class="markdown-exec"></div>
@@ -1156,11 +1157,11 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│ ---   ┆ ---                 ┆ ---   │
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│ cat   ┆ cat                 ┆ u32   │
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>╞═══════╪═════════════════════╪═══════╡
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ CT    ┆ Pro-Administration  ┆ 3     │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ NJ    ┆ Pro-Administration  ┆ 3     │
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│ VA    ┆ Anti-Administration ┆ 3     │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ NJ    ┆ Pro-Administration  ┆ 3     │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ CT    ┆ Pro-Administration  ┆ 3     │
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ NC    ┆ Pro-Administration  ┆ 2     │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ SC    ┆ Pro-Administration  ┆ 1     │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ NC    ┆ Anti-Administration ┆ 1     │
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>└───────┴─────────────────────┴───────┘
 </span></code></pre></div><div class="markdown-exec"></div>
 </p>
@@ -1223,11 +1224,11 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│ ---   ┆ ---            ┆ ---            ┆ ---    ┆ ---      │
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│ cat   ┆ f64            ┆ f64            ┆ u32    ┆ u32      │
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>╞═══════╪════════════════╪════════════════╪════════╪══════════╡
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ RI    ┆ 192.514286     ┆ 74.0           ┆ 108    ┆ 1        │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ HI    ┆ 113.25         ┆ 83.6           ┆ 20     ┆ 5        │
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│ ME    ┆ 191.707602     ┆ 99.0           ┆ 173    ┆ 2        │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ AR    ┆ 154.073394     ┆ 121.4          ┆ 112    ┆ 5        │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ HI    ┆ 113.25         ┆ 83.6           ┆ 20     ┆ 5        │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ MD    ┆ 187.280899     ┆ 93.375         ┆ 298    ┆ 8        │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ RI    ┆ 192.514286     ┆ 74.0           ┆ 108    ┆ 1        │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ MD    ┆ 187.280899     ┆ 93.375         ┆ 298    ┆ 8        │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ AR    ┆ 154.073394     ┆ 121.4          ┆ 112    ┆ 5        │
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>└───────┴────────────────┴────────────────┴────────┴──────────┘
 </span></code></pre></div><div class="markdown-exec"></div>
 </p>

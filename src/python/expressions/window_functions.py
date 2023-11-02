@@ -33,8 +33,12 @@ print(out_pl)
 out_pd = (df_pd
           .loc[:, ["Type 1", "Type 2", "Attack", "Defense"]]
           .assign(avg_attack_by_type=lambda df_: df_[["Type 1", "Attack"]].groupby(["Type 1"]).transform("mean"),
-                  avg_defense_by_type_combination=lambda df_: df_[["Type 1", "Type 2", "Defense"]].fillna(
-                      {"Type 2": "placeholder"}).groupby(["Type 1", "Type 2"]).transform("mean"),
+                  avg_defense_by_type_combination=lambda df_: (
+                      df_
+                      [["Type 1", "Type 2", "Defense"]]
+                      .fillna({"Type 2": "placeholder"})
+                      .groupby(["Type 1", "Type 2"])
+                      .transform("mean")),
                   avg_attack=lambda df_: df_.Attack.mean())
           .drop(columns=["Attack", "Defense"])
           )

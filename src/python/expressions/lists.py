@@ -10,6 +10,8 @@ data = {
                      "E2 E0 15 7 8 10 E1 24 17 13 6",
                      "14 8 E0 16 22 24 E1"]
 }
+
+pd.set_option('display.max_seq_items', 3)
 # --8<-- [end:setup1]
 
 # --8<-- [start:df_pl1]

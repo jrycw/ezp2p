@@ -2,87 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://jrycw.github.io/ezp2p/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/contexts/filter/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/contexts/group_by/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/contexts/select/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/contexts/with_columns/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/aggregation/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/casting/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/column_selections/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/folds/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/functions/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/lists/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/operators/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/strings/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/structs/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/expressions/window_functions/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/topics/missing_data/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jrycw.github.io/ezp2p/topics/temporal/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-11-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
