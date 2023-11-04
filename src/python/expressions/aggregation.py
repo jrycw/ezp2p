@@ -193,8 +193,7 @@ out_pl = (df_pl
                get_person().last().alias("oldest"),
                get_person().sort().first().alias("alphabetical_first"),
                pl.col("gender").sort_by("first_name").first().alias("gender"))
-          .with_columns(pl.col("state").cat.set_ordering("lexical"))
-          .sort("state")
+          .sort(pl.col("state").cat.set_ordering("lexical"))
           .limit(5)
           .collect()
           )
