@@ -1104,8 +1104,8 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ CT    ┆ 0    ┆ 3   │
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│ NJ    ┆ 0    ┆ 3   │
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ NC    ┆ 1    ┆ 2   │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ SC    ┆ 0    ┆ 1   │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ PA    ┆ 1    ┆ 1   │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ MA    ┆ 0    ┆ 1   │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ SC    ┆ 0    ┆ 1   │
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>└───────┴──────┴─────┘
 </span></code></pre></div><div class="markdown-exec"></div>
 </p>
@@ -1213,10 +1213,11 @@
 </span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>               <span class="n">avg_birthday</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">),</span>
 </span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>               <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;M&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;# male&quot;</span><span class="p">),</span>
 </span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>               <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;# female&quot;</span><span class="p">))</span>
-</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>          <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">is_in</span><span class="p">([</span><span class="s2">&quot;AR&quot;</span><span class="p">,</span> <span class="s2">&quot;MD&quot;</span><span class="p">,</span> <span class="s2">&quot;HI&quot;</span><span class="p">,</span> <span class="s2">&quot;ME&quot;</span><span class="p">,</span> <span class="s2">&quot;RI&quot;</span><span class="p">]))</span>
-</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>          <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>          <span class="p">)</span>
-</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="nb">print</span><span class="p">(</span><span class="n">out_pl</span><span class="p">)</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>          <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">set_ordering</span><span class="p">(</span><span class="s2">&quot;lexical&quot;</span><span class="p">))</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>          <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>          <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>          <span class="p">)</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="nb">print</span><span class="p">(</span><span class="n">out_pl</span><span class="p">)</span>
 </span></code></pre></div>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>shape: (5, 5)
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>┌───────┬────────────────┬────────────────┬────────┬──────────┐
@@ -1224,11 +1225,11 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│ ---   ┆ ---            ┆ ---            ┆ ---    ┆ ---      │
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│ cat   ┆ f64            ┆ f64            ┆ u32    ┆ u32      │
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>╞═══════╪════════════════╪════════════════╪════════╪══════════╡
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ HI    ┆ 113.25         ┆ 83.6           ┆ 20     ┆ 5        │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│ ME    ┆ 191.707602     ┆ 99.0           ┆ 173    ┆ 2        │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ RI    ┆ 192.514286     ┆ 74.0           ┆ 108    ┆ 1        │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ MD    ┆ 187.280899     ┆ 93.375         ┆ 298    ┆ 8        │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ AR    ┆ 154.073394     ┆ 121.4          ┆ 112    ┆ 5        │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ AK    ┆ 120.411765     ┆ null           ┆ 17     ┆ 0        │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│ AL    ┆ 163.772727     ┆ 97.5           ┆ 207    ┆ 4        │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ AR    ┆ 154.073394     ┆ 121.4          ┆ 112    ┆ 5        │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ AS    ┆ 81.0           ┆ null           ┆ 2      ┆ 0        │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ AZ    ┆ 114.586957     ┆ 76.8           ┆ 46     ┆ 5        │
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>└───────┴────────────────┴────────────────┴────────┴──────────┘
 </span></code></pre></div><div class="markdown-exec"></div>
 </p>
@@ -1245,18 +1246,19 @@
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>               <span class="n">count</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">))</span>
 </span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>          <span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;gender&quot;</span><span class="p">)</span>
 </span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>          <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">_rename_and_reorder_cols</span><span class="p">)</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>          <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;# male&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>          <span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;AR&quot;</span><span class="p">,</span> <span class="s2">&quot;MD&quot;</span><span class="p">,</span> <span class="s2">&quot;HI&quot;</span><span class="p">,</span> <span class="s2">&quot;ME&quot;</span><span class="p">,</span> <span class="s2">&quot;RI&quot;</span><span class="p">],</span> <span class="p">:]</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>          <span class="o">.</span><span class="n">fillna</span><span class="p">({</span><span class="s2">&quot;# female&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;# male&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>          <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 </span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>          <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>          <span class="p">)</span>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">out_pd</span><span class="p">)</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>          <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>          <span class="p">)</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">out_pd</span><span class="p">)</span>
 </span></code></pre></div>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  state  avg M birthday  avg F birthday  # male  # female
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>0    AR      154.073394         121.400   112.0       5.0
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1    MD      187.280899          93.375   298.0       8.0
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2    HI      113.250000          83.600    20.0       5.0
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3    ME      191.707602          99.000   173.0       2.0
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>4    RI      192.514286          74.000   108.0       1.0
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>0    AK      120.411765             NaN    17.0       0.0
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1    AL      163.772727            97.5   207.0       4.0
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2    AR      154.073394           121.4   112.0       5.0
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3    AS       81.000000             NaN     2.0       0.0
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>4    AZ      114.586957            76.8    46.0       5.0
 </span></code></pre></div><div class="markdown-exec"></div>
 </p>
 </div>

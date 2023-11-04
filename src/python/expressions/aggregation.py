@@ -149,7 +149,8 @@ out_pl = (df_pl
                avg_birthday("F"),
                (pl.col("gender") == "M").sum().alias("# male"),
                (pl.col("gender") == "F").sum().alias("# female"))
-          .filter(pl.col("state").is_in(["AR", "MD", "HI", "ME", "RI"]))
+          .sort(pl.col("state").cat.set_ordering("lexical"))
+          .head(5)
           .collect()
           )
 print(out_pl)
@@ -169,9 +170,10 @@ out_pd = (df_pd
                count=("gender", "size"))
           .unstack(level="gender")
           .pipe(_rename_and_reorder_cols)
-          .sort_values("# male", ascending=False)
-          .loc[["AR", "MD", "HI", "ME", "RI"], :]
+          .fillna({"# female": 0, "# male": 0})
+          .sort_index()
           .reset_index()
+          .head(5)
           )
 print(out_pd)
 # --8<-- [end:pd_filter]
