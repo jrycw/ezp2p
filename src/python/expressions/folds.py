@@ -22,10 +22,9 @@ print(df_pd)
 
 
 # --8<-- [start:pl_]
-out_pl = df_pl.select(pl.fold(acc=pl.lit(0),
-                              function=lambda acc, x: acc + x,
-                              exprs=pl.all()).alias("sum")
-                      )
+out_pl = df_pl.select(
+    pl.fold(acc=pl.lit(0), function=lambda acc, x: acc + x, exprs=pl.all()).alias("sum")
+)
 
 print(out_pl)
 # --8<-- [end:pl_]

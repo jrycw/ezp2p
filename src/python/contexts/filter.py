@@ -4,10 +4,7 @@ import pandas as pd
 import polars as pl
 
 np.random.seed(42)
-data = {
-    "nrs": [1, 2, 3, 4, 5],
-    "random": np.random.rand(5)
-}
+data = {"nrs": [1, 2, 3, 4, 5], "random": np.random.rand(5)}
 # --8<-- [end:setup]
 
 # --8<-- [start:df_pl]
@@ -26,8 +23,6 @@ print(out_pl)
 # --8<-- [end:pl_example]
 
 # --8<-- [start:pd_example]
-out_pd = (df_pd
-          .query("nrs > 2 & random > 0.5")
-          )
+out_pd = df_pd.query("nrs > 2 & random > 0.5")
 print(out_pd)
 # --8<-- [end:pd_example]

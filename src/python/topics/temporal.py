@@ -10,13 +10,9 @@ import polars as pl
 data_pl = {
     "date": pl.date_range(date(2022, 1, 1), date(2022, 1, 5), eager=True),
     "datetime": pl.datetime_range(
-        datetime(2022, 1, 1), datetime(2022, 1, 5), eager=True),
-    "date_str": [
-        "2022-01-01",
-        "2022-01-02",
-        "2022-01-03",
-        "2022-01-04",
-        "2022-01-05"]
+        datetime(2022, 1, 1), datetime(2022, 1, 5), eager=True
+    ),
+    "date_str": ["2022-01-01", "2022-01-02", "2022-01-03", "2022-01-04", "2022-01-05"],
 }
 df_pl = pl.DataFrame(data_pl)
 print(df_pl)
@@ -26,12 +22,7 @@ print(df_pl)
 data_pd = {
     "date": pd.date_range("2022-01-01", "2022-01-05"),
     "datetime": pd.date_range("2022-01-01", "2022-01-05"),
-    "date_str": [
-        "2022-01-01",
-        "2022-01-02",
-        "2022-01-03",
-        "2022-01-04",
-        "2022-01-05"]
+    "date_str": ["2022-01-01", "2022-01-02", "2022-01-03", "2022-01-04", "2022-01-05"],
 }
 df_pd = pd.DataFrame(data_pd)
 print(df_pd)

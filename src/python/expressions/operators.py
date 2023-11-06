@@ -24,52 +24,52 @@ print(df_pd)
 
 
 # --8<-- [start:pl_numerical]
-out_pl = (df_pl
-          .select((pl.col("nrs") + 5).alias("nrs + 5"),
-                  (pl.col("nrs") - 5).alias("nrs - 5"),
-                  (pl.col("nrs") * pl.col("random")).alias("nrs * random"),
-                  (pl.col("nrs") / pl.col("random")).alias("nrs / random"))
-          )
+out_pl = df_pl.select(
+    (pl.col("nrs") + 5).alias("nrs + 5"),
+    (pl.col("nrs") - 5).alias("nrs - 5"),
+    (pl.col("nrs") * pl.col("random")).alias("nrs * random"),
+    (pl.col("nrs") / pl.col("random")).alias("nrs / random"),
+)
 print(out_pl)
 # --8<-- [end:pl_numerical]
 
 
 # --8<-- [start:pd_numerical]
-out_pd = (df_pd
-          .assign(**{"nrs + 5": lambda df_: df_.nrs + 5,
-                     "nrs - 5": lambda df_: df_.nrs - 5,
-                     "nrs * random": lambda df_: df_.nrs * df_.random,
-                     "nrs / random": lambda df_: df_.nrs / df_.random})
-          .drop(columns=df_pd.columns)
-          )
+out_pd = df_pd.assign(
+    **{
+        "nrs + 5": lambda df_: df_.nrs + 5,
+        "nrs - 5": lambda df_: df_.nrs - 5,
+        "nrs * random": lambda df_: df_.nrs * df_.random,
+        "nrs / random": lambda df_: df_.nrs / df_.random,
+    }
+).drop(columns=df_pd.columns)
 print(out_pd)
 # --8<-- [end:pd_numerical]
 
 
 # --8<-- [start:pl_logical]
-out_pl = (df_pl
-          .select(
-              (pl.col("nrs") > 1).alias("nrs > 1"),
-              (pl.col("random") <= 0.5).alias("random <= .5"),
-              (pl.col("nrs") != 1).alias("nrs != 1"),
-              (pl.col("nrs") == 1).alias("nrs == 1"),
-              ((pl.col("random") <= 0.5) &
-               (pl.col("nrs") > 1)).alias("and_expr"),
-              ((pl.col("random") <= 0.5) | (pl.col("nrs") > 1)).alias("or_expr"))
-          )
+out_pl = df_pl.select(
+    (pl.col("nrs") > 1).alias("nrs > 1"),
+    (pl.col("random") <= 0.5).alias("random <= .5"),
+    (pl.col("nrs") != 1).alias("nrs != 1"),
+    (pl.col("nrs") == 1).alias("nrs == 1"),
+    ((pl.col("random") <= 0.5) & (pl.col("nrs") > 1)).alias("and_expr"),
+    ((pl.col("random") <= 0.5) | (pl.col("nrs") > 1)).alias("or_expr"),
+)
 print(out_pl)
 # --8<-- [end:pl_logical]
 
 
 # --8<-- [start:pd_logical]
-out_pd = (df_pd
-          .assign(**{"nrs > 1": lambda df_: df_.nrs > 1,
-                     "random <= .5": lambda df_: df_.random <= .5,
-                     "nrs != 1": lambda df_: df_.nrs != 1,
-                     "nrs == 1": lambda df_: df_.nrs == 1,
-                     "and_expr": lambda df_: (df_.random <= .5) & (df_.nrs > 1),
-                     "or_expr": lambda df_: (df_.random <= .5) | (df_.nrs > 1)})
-          .drop(columns=df_pd.columns)
-          )
+out_pd = df_pd.assign(
+    **{
+        "nrs > 1": lambda df_: df_.nrs > 1,
+        "random <= .5": lambda df_: df_.random <= 0.5,
+        "nrs != 1": lambda df_: df_.nrs != 1,
+        "nrs == 1": lambda df_: df_.nrs == 1,
+        "and_expr": lambda df_: (df_.random <= 0.5) & (df_.nrs > 1),
+        "or_expr": lambda df_: (df_.random <= 0.5) | (df_.nrs > 1),
+    }
+).drop(columns=df_pd.columns)
 print(out_pd)
 # --8<-- [end:pd_logical]
