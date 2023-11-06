@@ -20,57 +20,49 @@ print(df_pl)
 
 # --8<-- [start:df_pd]
 df_pd = pd.DataFrame(data)
-print(df_pd.dtypes, end='\n'*2)
+print(df_pd.dtypes, end="\n" * 2)
 print(df_pd)
 # --8<-- [end:df_pd]
 
 
 # --8<-- [start:pl_numerics]
-out_pl = (df_pl
-          .select(
-              pl.col("integers").cast(pl.Float32).alias("integers_as_floats"),
-              pl.col("floats").cast(pl.Int32).alias("floats_as_integers"),
-              pl.col("floats_with_decimal")
-              .cast(pl.Int32)
-              .alias("floats_with_decimal_as_integers"))
-          )
+out_pl = df_pl.select(
+    pl.col("integers").cast(pl.Float32).alias("integers_as_floats"),
+    pl.col("floats").cast(pl.Int32).alias("floats_as_integers"),
+    pl.col("floats_with_decimal")
+    .cast(pl.Int32)
+    .alias("floats_with_decimal_as_integers"),
+)
 print(out_pl)
 # --8<-- [end:pl_numerics]
 
 
 # --8<-- [start:pd_numerics]
-out_pd = (df_pd
-          .assign(
-              integers_as_floats=lambda df_: df_.integers.astype("float32"),
-              floats_as_integers=lambda df_: df_.floats.astype("int32"),
-              floats_with_decimal_as_integers=lambda df_: df_.floats_with_decimal.astype(
-                  "int32"))
-          .drop(columns=df_pd.columns)
-          )
-print(out_pd.dtypes, end='\n'*2)
+out_pd = df_pd.assign(
+    integers_as_floats=lambda df_: df_.integers.astype("float32"),
+    floats_as_integers=lambda df_: df_.floats.astype("int32"),
+    floats_with_decimal_as_integers=lambda df_: df_.floats_with_decimal.astype("int32"),
+).drop(columns=df_pd.columns)
+print(out_pd.dtypes, end="\n" * 2)
 print(out_pd)
 # --8<-- [end:pd_numerics]
 
 
 # --8<-- [start:pl_numerics_downcast]
-out_pl = (df_pl
-          .select(
-              pl.col("integers").cast(pl.Int16).alias(
-                  "integers_smallfootprint"),
-              pl.col("floats").cast(pl.Float32).alias("floats_smallfootprint"))
-          )
+out_pl = df_pl.select(
+    pl.col("integers").cast(pl.Int16).alias("integers_smallfootprint"),
+    pl.col("floats").cast(pl.Float32).alias("floats_smallfootprint"),
+)
 print(out_pl)
 # --8<-- [end:pl_numerics_downcast]
 
 
 # --8<-- [start:pd_numerics_downcast]
-out_pd = (df_pd
-          .assign(
-              integers_smallfootprint=lambda df_: df_.integers.astype("int16"),
-              floats_smallfootprint=lambda df_: df_.floats.astype("float32"))
-          .drop(columns=df_pd.columns)
-          )
-print(out_pd.dtypes, end='\n'*2)
+out_pd = df_pd.assign(
+    integers_smallfootprint=lambda df_: df_.integers.astype("int16"),
+    floats_smallfootprint=lambda df_: df_.floats.astype("float32"),
+).drop(columns=df_pd.columns)
+print(out_pd.dtypes, end="\n" * 2)
 print(out_pd)
 # --8<-- [end:pd_numerics_downcast]
 
@@ -89,45 +81,42 @@ print(out_pl)
 # --8<-- [end:pl_numerics_overflow_strict_false]
 
 # --8<-- [start:pd_numerics_overflow_astype]
-out_pd = (df_pd
-          .assign(big_integers=lambda df_: df_.big_integers.astype("int8"))
-          .drop(columns=df_pd.columns.drop(["big_integers"]))
-          )
+out_pd = df_pd.assign(big_integers=lambda df_: df_.big_integers.astype("int8")).drop(
+    columns=df_pd.columns.drop(["big_integers"])
+)
 
-print(out_pd.dtypes, end='\n'*2)
+print(out_pd.dtypes, end="\n" * 2)
 print(out_pd)
 # --8<-- [end:pd_numerics_overflow_astype]
 
 
 # --8<-- [start:pd_numerics_overflow_to_numeric]
-out_pd = (df_pd
-          .assign(big_integers=lambda df_: pd.to_numeric(df_.big_integers, downcast="integer"))
-          .drop(columns=df_pd.columns.drop(["big_integers"]))
-          )
+out_pd = df_pd.assign(
+    big_integers=lambda df_: pd.to_numeric(df_.big_integers, downcast="integer")
+).drop(columns=df_pd.columns.drop(["big_integers"]))
 
-print(out_pd.dtypes, end='\n'*2)
+print(out_pd.dtypes, end="\n" * 2)
 print(out_pd)
 # --8<-- [end:pd_numerics_overflow_to_numeric]
 
 
 # --8<-- [start:pl_strings]
-out_pl = (df_pl
-          .select(pl.col("integers").cast(pl.Utf8),
-                  pl.col("floats").cast(pl.Utf8),
-                  pl.col("floats_as_string").cast(pl.Float64))
-          )
+out_pl = df_pl.select(
+    pl.col("integers").cast(pl.Utf8),
+    pl.col("floats").cast(pl.Utf8),
+    pl.col("floats_as_string").cast(pl.Float64),
+)
 print(out_pl)
 # --8<-- [end:pl_strings]
 
 
 # --8<-- [start:pd_strings]
-out_pd = (df_pd
-          .assign(integers=lambda df_: df_.integers.astype(str),
-                  floats=lambda df_: df_.floats.astype(str),
-                  floats_as_string=lambda df_: df_.floats_as_string.astype("float64"))
-          .drop(columns=df_pd.columns.drop(["integers", "floats", "floats_as_string"]))
-          )
-print(out_pd.dtypes, end='\n'*2)
+out_pd = df_pd.assign(
+    integers=lambda df_: df_.integers.astype(str),
+    floats=lambda df_: df_.floats.astype(str),
+    floats_as_string=lambda df_: df_.floats_as_string.astype("float64"),
+).drop(columns=df_pd.columns.drop(["integers", "floats", "floats_as_string"]))
+print(out_pd.dtypes, end="\n" * 2)
 print(out_pd)
 # --8<-- [end:pd_strings]
 
@@ -142,18 +131,16 @@ except Exception as e:
 
 
 # --8<-- [start:pl_strings_strict_false]
-out_pl = df_pl.select(
-    pl.col("strings_not_float").cast(pl.Float64, strict=False))
+out_pl = df_pl.select(pl.col("strings_not_float").cast(pl.Float64, strict=False))
 print(out_pl)
 # --8<-- [end:pl_strings_strict_false]
 
 
 # --8<-- [start:pd_strings_to_numeric_raise]
 try:
-    out_pd = (df_pd
-              .assign(strings_not_float=lambda df_: pd.to_numeric(df_.strings_not_float))
-              .drop(columns=df_pd.columns.drop(["strings_not_float"]))
-              )
+    out_pd = df_pd.assign(
+        strings_not_float=lambda df_: pd.to_numeric(df_.strings_not_float)
+    ).drop(columns=df_pd.columns.drop(["strings_not_float"]))
     print(out_pd)
 except Exception as e:
     print(e)
@@ -161,28 +148,25 @@ except Exception as e:
 
 
 # --8<-- [start:pd_strings_to_coerce]
-out_pd = (df_pd
-          .assign(strings_not_float=lambda df_: pd.to_numeric(df_.strings_not_float, errors='coerce'))
-          .drop(columns=df_pd.columns.drop(["strings_not_float"]))
-          )
-print(out_pd.dtypes, end='\n'*2)
+out_pd = df_pd.assign(
+    strings_not_float=lambda df_: pd.to_numeric(df_.strings_not_float, errors="coerce")
+).drop(columns=df_pd.columns.drop(["strings_not_float"]))
+print(out_pd.dtypes, end="\n" * 2)
 print(out_pd)
 # --8<-- [end:pd_strings_to_coerce]
 
 
 # --8<-- [start:pl_bools]
-out_pl = (df_pl
-          .select(pl.col("integers").cast(pl.Boolean),
-                  pl.col("floats").cast(pl.Boolean))
-          )
+out_pl = df_pl.select(
+    pl.col("integers").cast(pl.Boolean), pl.col("floats").cast(pl.Boolean)
+)
 print(out_pl)
 # --8<-- [end:pl_bools]
 
 # --8<-- [start:pd_bools]
-out_pd = (df_pd
-          .assign(integers=lambda df_: df_.integers.astype(bool),
-                  floats=lambda df_: df_.floats.astype(bool))
-          .drop(columns=df_pd.columns.drop(["integers", "floats"]))
-          )
+out_pd = df_pd.assign(
+    integers=lambda df_: df_.integers.astype(bool),
+    floats=lambda df_: df_.floats.astype(bool),
+).drop(columns=df_pd.columns.drop(["integers", "floats"]))
 print(out_pd)
 # --8<-- [end:pd_bools]

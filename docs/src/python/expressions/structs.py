@@ -26,22 +26,19 @@ print(out_pl)
 # --8<-- [end:pl_value_counts]
 
 # --8<-- [start:pd_value_counts]
-out_pd = (df_pd
-          .loc[:, ["Theatre"]]
-          .value_counts()
-          .reset_index()
-          .assign(Theatre=lambda df_: df_.values.tolist())
-          .drop(columns=["count"])
-          )
+out_pd = (
+    df_pd.loc[:, ["Theatre"]]
+    .value_counts()
+    .reset_index()
+    .assign(Theatre=lambda df_: df_.values.tolist())
+    .drop(columns=["count"])
+)
 print(out_pd)
 # --8<-- [end:pd_value_counts]
 
 
 # --8<-- [start:pl_value_counts_unnest]
-out_pl = (df_pl
-          .select(pl.col("Theatre").value_counts(sort=True))
-          .unnest("Theatre")
-          )
+out_pl = df_pl.select(pl.col("Theatre").value_counts(sort=True)).unnest("Theatre")
 print(out_pl)
 # --8<-- [end:pl_value_counts_unnest]
 
@@ -63,14 +60,12 @@ print(out_pd)
 
 
 # --8<-- [start:pl_multi_col_ranking]
-out_pl = (df_pl
-          .with_columns(
-              pl.struct("Count", "Avg_Rating")
-              .rank("dense", descending=True)
-              .over("Movie", "Theatre")
-              .alias("Rank"))
-          .filter(pl.struct("Movie", "Theatre").is_duplicated())
-          )
+out_pl = df_pl.with_columns(
+    pl.struct("Count", "Avg_Rating")
+    .rank("dense", descending=True)
+    .over("Movie", "Theatre")
+    .alias("Rank")
+).filter(pl.struct("Movie", "Theatre").is_duplicated())
 print(out_pl)
 # --8<-- [end:pl_multi_col_ranking]
 
@@ -79,17 +74,16 @@ print(out_pl)
 
 def _create_rank_col(df_):
     to_be_ranked_cols = ["Count", "Avg_Rating"]
-    return (df_
-            .assign(rank=lambda df_: df_[to_be_ranked_cols].values.tolist())
-            .groupby(["Movie", "Theatre"])
-            .rank(ascending=False, method="dense")
-            .drop(columns=to_be_ranked_cols)
-            )
+    return (
+        df_.assign(rank=lambda df_: df_[to_be_ranked_cols].values.tolist())
+        .groupby(["Movie", "Theatre"])
+        .rank(ascending=False, method="dense")
+        .drop(columns=to_be_ranked_cols)
+    )
 
 
-out_pd = (df_pd
-          .assign(rank=_create_rank_col)
-          [df_pd.duplicated(["Movie", "Theatre"], keep=False)]
-          )
+out_pd = df_pd.assign(rank=_create_rank_col)[
+    df_pd.duplicated(["Movie", "Theatre"], keep=False)
+]
 print(out_pd)
 # --8<-- [end:pd_multi_col_ranking]
