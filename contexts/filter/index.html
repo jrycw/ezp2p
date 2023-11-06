@@ -26,7 +26,7 @@
     
     
       
-        <title>pl.filter() - From Pandas to Polars</title>
+        <title>df.filter() - From Pandas to Polars</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#plfilter" class="md-skip">
+        <a href="#dffilter" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pl.filter()
+              df.filter()
             
           </span>
         </div>
@@ -321,7 +321,7 @@
         
   
   <span class="md-ellipsis">
-    pl.select()
+    df.select()
   </span>
   
 
@@ -341,7 +341,7 @@
         
   
   <span class="md-ellipsis">
-    pl.with_columns()
+    df.with_columns()
   </span>
   
 
@@ -370,7 +370,7 @@
           
   
   <span class="md-ellipsis">
-    pl.filter()
+    df.filter()
   </span>
   
 
@@ -381,7 +381,7 @@
         
   
   <span class="md-ellipsis">
-    pl.filter()
+    df.filter()
   </span>
   
 
@@ -442,7 +442,7 @@
         
   
   <span class="md-ellipsis">
-    pl.group_by().agg()
+    df.group_by().agg()
   </span>
   
 
@@ -850,8 +850,8 @@
   
 
 
-<h1 id="plfilter">pl.filter()</h1>
-<p><code>pl.filter([..])</code> selects rows based on the given conditions.</p>
+<h1 id="dffilter">df.filter()</h1>
+<p><code>df.filter([..])</code> selects rows based on the given conditions.</p>
 <h2 id="setup">Setup</h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -898,7 +898,7 @@
 </div>
 </div>
 <h2 id="example">Example</h2>
-<p>The behavior of <code>pl.filter([..])</code> can be treated as <code>df.query(..)</code> in <code>Pandas</code>.</p>
+<p>The behavior of <code>df.filter([..])</code> can be treated as <code>df.query(..)</code> in <code>Pandas</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Polars</label><label for="__tabbed_2_2">Pandas</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -954,7 +954,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../with_columns/" class="md-footer__link md-footer__link--prev" aria-label="Previous: pl.with_columns()">
+          <a href="../with_columns/" class="md-footer__link md-footer__link--prev" aria-label="Previous: df.with_columns()">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -964,20 +964,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                pl.with_columns()
+                df.with_columns()
               </div>
             </div>
           </a>
         
         
           
-          <a href="../group_by/" class="md-footer__link md-footer__link--next" aria-label="Next: pl.group_by().agg()">
+          <a href="../group_by/" class="md-footer__link md-footer__link--next" aria-label="Next: df.group_by().agg()">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                pl.group_by().agg()
+                df.group_by().agg()
               </div>
             </div>
             <div class="md-footer__button md-icon">

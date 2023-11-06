@@ -433,7 +433,7 @@
         
   
   <span class="md-ellipsis">
-    pl.select()
+    df.select()
   </span>
   
 
@@ -453,7 +453,7 @@
         
   
   <span class="md-ellipsis">
-    pl.with_columns()
+    df.with_columns()
   </span>
   
 
@@ -473,7 +473,7 @@
         
   
   <span class="md-ellipsis">
-    pl.filter()
+    df.filter()
   </span>
   
 
@@ -493,7 +493,7 @@
         
   
   <span class="md-ellipsis">
-    pl.group_by().agg()
+    df.group_by().agg()
   </span>
   
 
@@ -972,11 +972,11 @@
 <p>Contexts in <code>Polars</code> determine how to perform operations similar to <code>df.loc[.., ..]</code>, <code>df.iloc[.., ..]</code> and <code>df[..]</code>. </p>
 <p>In <code>Polars</code>, You'll mainly work with these three contexts to manipulate rows and columns:</p>
 <ul>
-<li><code>pl.select([..])</code>: Select or create columns.</li>
-<li><code>pl.with_columns([..])</code>: Create columns.</li>
-<li><code>pl.filter(..)</code>: Filter rows.</li>
+<li><code>df.select([..])</code>: Select or create columns.</li>
+<li><code>df.with_columns([..])</code>: Create columns.</li>
+<li><code>df.filter(..)</code>: Filter rows.</li>
 </ul>
-<p>It's worth noting that <code>pl.group_by(..).agg([..])</code> serves as a specialized context in <code>Polars</code> for aggregation purposes.</p>
+<p>It's worth noting that <code>df.group_by(..).agg([..])</code> serves as a specialized context in <code>Polars</code> for aggregation purposes.</p>
 <h3 id="expressions">Expressions</h3>
 <p>Expressions in <code>Polars</code> are akin to the operations you wish to perform. They are present throughout the library. You'll find them used for various tasks, such as changing a column's data type, sorting a column, extracting the initial rows, and even computing the mean value for each group after performing a <code>group by</code> operation.</p>
 <h3 id="no-more-index">No more index</h3>
@@ -1116,13 +1116,13 @@
         
         
           
-          <a href="contexts/select/" class="md-footer__link md-footer__link--next" aria-label="Next: pl.select()">
+          <a href="contexts/select/" class="md-footer__link md-footer__link--next" aria-label="Next: df.select()">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                pl.select()
+                df.select()
               </div>
             </div>
             <div class="md-footer__button md-icon">

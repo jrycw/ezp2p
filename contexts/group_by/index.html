@@ -26,7 +26,7 @@
     
     
       
-        <title>pl.group_by().agg() - From Pandas to Polars</title>
+        <title>df.group_by().agg() - From Pandas to Polars</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#plgroup_byagg" class="md-skip">
+        <a href="#dfgroup_byagg" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pl.group_by().agg()
+              df.group_by().agg()
             
           </span>
         </div>
@@ -321,7 +321,7 @@
         
   
   <span class="md-ellipsis">
-    pl.select()
+    df.select()
   </span>
   
 
@@ -341,7 +341,7 @@
         
   
   <span class="md-ellipsis">
-    pl.with_columns()
+    df.with_columns()
   </span>
   
 
@@ -361,7 +361,7 @@
         
   
   <span class="md-ellipsis">
-    pl.filter()
+    df.filter()
   </span>
   
 
@@ -390,7 +390,7 @@
           
   
   <span class="md-ellipsis">
-    pl.group_by().agg()
+    df.group_by().agg()
   </span>
   
 
@@ -401,7 +401,7 @@
         
   
   <span class="md-ellipsis">
-    pl.group_by().agg()
+    df.group_by().agg()
   </span>
   
 
@@ -850,8 +850,8 @@
   
 
 
-<h1 id="plgroup_byagg">pl.group_by().agg()</h1>
-<p><code>pl.group_by(..).agg([..])</code> groups specific columns and performs parallel aggregations.</p>
+<h1 id="dfgroup_byagg">df.group_by().agg()</h1>
+<p><code>df.group_by(..).agg([..])</code> groups specific columns and performs parallel aggregations.</p>
 <h2 id="setup">Setup</h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -903,7 +903,7 @@
 </div>
 </div>
 <h2 id="example">Example</h2>
-<p><code>pl.group_by(..).agg(..)</code> behaves similarly to <code>pd.groupby(..).agg(..)</code>. In <code>Polars</code>, aggregation is primarily achieved through <code>expressions</code>, whereas <code>Pandas</code> relies on the provided methods of the grouper object.</p>
+<p><code>df.group_by(..).agg(..)</code> behaves similarly to <code>df.groupby(..).agg(..)</code> in <code>Pandas</code>. In <code>Polars</code>, aggregation is primarily achieved through <code>expressions</code>, whereas <code>Pandas</code> relies on the provided methods of the grouper object.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Polars</label><label for="__tabbed_2_2">Pandas</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -987,7 +987,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../filter/" class="md-footer__link md-footer__link--prev" aria-label="Previous: pl.filter()">
+          <a href="../filter/" class="md-footer__link md-footer__link--prev" aria-label="Previous: df.filter()">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -997,7 +997,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                pl.filter()
+                df.filter()
               </div>
             </div>
           </a>
