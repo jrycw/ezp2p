@@ -1,5 +1,5 @@
-# pl.filter()
-`pl.filter([..])` selects rows based on the given conditions.
+# df.filter()
+`df.filter([..])` selects rows based on the given conditions.
 
 ## Setup
 ```python 
@@ -29,7 +29,7 @@
     ```
 
 ## Example
-The behavior of `pl.filter([..])` can be treated as `df.query(..)` in `Pandas`.
+The behavior of `df.filter([..])` can be treated as `df.query(..)` in `Pandas`.
 
 === "Polars"
     ```python 

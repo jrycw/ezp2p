@@ -1,5 +1,5 @@
-# pl.select()
-`pl.select([..])` is a powerful selection tool that allows you to select one or more columns and perform operations on them in parallel. This includes the ability to create new columns as part of your selection process.
+# df.select()
+`df.select([..])` is a powerful selection tool that allows you to select one or more columns and perform operations on them in parallel. This includes the ability to create new columns as part of your selection process.
 
 ## Setup
 ```python 
@@ -29,7 +29,7 @@
     ```
 
 ## Basic form
-If selecting at least one column from the original dataframe, the behavior of `pl.select([..])` can be treated as `df.loc(:, [..]).assign(..)` in `Pandas`.
+If selecting at least one column from the original dataframe, the behavior of `df.select([..])` can be treated as `df.loc(:, [..]).assign(..)` in `Pandas`.
 
 
 === "Polars"
@@ -51,7 +51,7 @@ If selecting at least one column from the original dataframe, the behavior of `p
     ```
 
 ## Generalized form
-It's worth noting that `pl.select([..])` can also be used to create columns. Therefore, the behavior of `pl.select([..])` is akin to `df.assign(..).drop(columns=..)` in `Pandas`."
+It's worth noting that `df.select([..])` can also be used to create columns. Therefore, the behavior of `df.select([..])` is akin to `df.assign(..).drop(columns=..)` in `Pandas`."
 
 === "Polars"
     ```python 
@@ -104,8 +104,8 @@ Here's a breakdown of the operations:
 Additionally, we use `.drop(columns=df_pd.columns.drop(["nrs", "names"]))` to drop the columns that haven't been reassigned.
 
 ## Tips
-* Whenever you wish you could use `df.loc(..)`, `df.iloc(..)` or `df[..]` in `Polars`, you're likely looking for `pl.select([..])`. 
-* Notably, `pl.select([..])` not only lets you select columns but also enables you to create new columns simultaneously.
+* Whenever you wish you could use `df.loc(..)`, `df.iloc(..)` or `df[..]` in `Polars`, you're likely looking for `df.select([..])`. 
+* Notably, `df.select([..])` not only lets you select columns but also enables you to create new columns simultaneously.
 
 ## Reference
 The examples in this section have been adapted from the [`Polars` user guide](https://pola-rs.github.io/polars/user-guide/concepts/contexts/#select).

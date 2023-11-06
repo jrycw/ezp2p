@@ -1,5 +1,5 @@
-# pl.group_by().agg()
-`pl.group_by(..).agg([..])` groups specific columns and performs parallel aggregations.
+# df.group_by().agg()
+`df.group_by(..).agg([..])` groups specific columns and performs parallel aggregations.
 
 ## Setup
 ```python 
@@ -29,7 +29,7 @@
     ```
 
 ## Example
-`pl.group_by(..).agg(..)` behaves similarly to `pd.groupby(..).agg(..)`. In `Polars`, aggregation is primarily achieved through `expressions`, whereas `Pandas` relies on the provided methods of the grouper object.
+`df.group_by(..).agg(..)` behaves similarly to `df.groupby(..).agg(..)` in `Pandas`. In `Polars`, aggregation is primarily achieved through `expressions`, whereas `Pandas` relies on the provided methods of the grouper object.
 
 === "Polars"
     ```python 

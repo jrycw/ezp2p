@@ -19,11 +19,11 @@ Contexts in `Polars` determine how to perform operations similar to `df.loc[.., 
 
 In `Polars`, You'll mainly work with these three contexts to manipulate rows and columns:
 
-* `pl.select([..])`: Select or create columns.
-* `pl.with_columns([..])`: Create columns.
-* `pl.filter(..)`: Filter rows.
+* `df.select([..])`: Select or create columns.
+* `df.with_columns([..])`: Create columns.
+* `df.filter(..)`: Filter rows.
 
-It's worth noting that `pl.group_by(..).agg([..])` serves as a specialized context in `Polars` for aggregation purposes.
+It's worth noting that `df.group_by(..).agg([..])` serves as a specialized context in `Polars` for aggregation purposes.
 
 ### Expressions
 Expressions in `Polars` are akin to the operations you wish to perform. They are present throughout the library. You'll find them used for various tasks, such as changing a column's data type, sorting a column, extracting the initial rows, and even computing the mean value for each group after performing a `group by` operation.

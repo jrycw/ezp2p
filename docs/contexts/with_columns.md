@@ -1,5 +1,5 @@
-# pl.with_columns()
-`pl.with_columns([..])` allows you to create new columns in parallel. Unlike `pl.select([..])`, it adds the newly created columns to the original dataframe instead of dropping them.
+# df.with_columns()
+`df.with_columns([..])` allows you to create new columns in parallel. Unlike `df.select([..])`, it adds the newly created columns to the original dataframe instead of dropping them.
 
 ## Setup
 ```python 
@@ -29,7 +29,7 @@
     ```
 
 ## Example
-The behavior of `pl.with_columns([..])` can be treated as `df.assign(..)` in `Pandas`.
+The behavior of `df.with_columns([..])` can be treated as `df.assign(..)` in `Pandas`.
 
 === "Polars"
     ```python 
