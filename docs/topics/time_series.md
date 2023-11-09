@@ -86,7 +86,7 @@ It is worth noting that:
     --8<-- "../src/python/topics/time_series.py:pl_resampling_by_day"
     ```
 
-=== "Polars_with_upsample"
+=== "Polars_upsample"
     ```python 
     --8<-- "../src/python/topics/time_series.py:pl_resampling_by_day_with_upsample"
     ```
@@ -106,15 +106,24 @@ It is worth noting that:
     ```
 
 ## Resampling data by custom time interval
-As the time of writing, a complex combination for datetime, like `3d12h4m25s` will fail. In addition, to achieve the similar behavior like `Pandas`, you might need to tweak the `offset` parameter of `df.group_by_dynamic` in `Polars`.
+At the time of writing, a complex combination for datetime, like `3d12h4m25s` will fail. In addition, to achieve the similar behavior like `Pandas`, you might need to tweak the `offset` or `start_by` parameters of `df.group_by_dynamic` in `Polars`.
 
-=== "Polars_with_upsample"
+=== "Polars_upsample_offset"
     ```python 
-    --8<-- "../src/python/topics/time_series.py:pl_resampling_by_custom_time_interval_with_upsample"
+    --8<-- "../src/python/topics/time_series.py:pl_resampling_by_custom_time_interval_with_upsample_offset"
     ```
 
     ```python exec="on" result="text" session="topics/time_series"
-    --8<-- "../src/python/topics/time_series.py:pl_resampling_by_custom_time_interval_with_upsample"
+    --8<-- "../src/python/topics/time_series.py:pl_resampling_by_custom_time_interval_with_upsample_offset"
+    ```
+
+=== "Polars_upsample_start_by"
+    ```python 
+    --8<-- "../src/python/topics/time_series.py:pl_resampling_by_custom_time_interval_with_upsample_start_by"
+    ```
+
+    ```python exec="on" result="text" session="topics/time_series"
+    --8<-- "../src/python/topics/time_series.py:pl_resampling_by_custom_time_interval_with_upsample_start_by"
     ```
 
 

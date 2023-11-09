@@ -112,14 +112,25 @@ print(out_pd)
 # --8<-- [end:pd_resampling_by_day]
 
 
-# --8<-- [start:pl_resampling_by_custom_time_interval_with_upsample]
+# --8<-- [start:pl_resampling_by_custom_time_interval_with_upsample_offset]
 out_pl = (
     df_pl.group_by_dynamic("datetime", every="16h30m", offset="4h30m")
     .agg(pl.col("nrs").mean())
     .upsample("datetime", every="16h30m")
 )
 print(out_pl)
-# --8<-- [end:pl_resampling_by_custom_time_interval_with_upsample]
+# --8<-- [end:pl_resampling_by_custom_time_interval_with_upsample_offset]
+
+
+# --8<-- [start:pl_resampling_by_custom_time_interval_with_upsample_start_by]
+out_pl = (
+    df_pl.group_by_dynamic("datetime", every="16h30m", start_by="datapoint")
+    .agg(pl.col("nrs").mean())
+    .upsample("datetime", every="16h30m")
+)
+print(out_pl)
+# --8<-- [end:pl_resampling_by_custom_time_interval_with_upsample_start_by]
+
 
 # --8<-- [start:pd_resampling_by_custom_time_interval]
 out_pd = df_pd.resample("16H30min").mean()

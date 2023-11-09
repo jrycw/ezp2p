@@ -38,6 +38,5 @@ out = (
     .agg(*to_describe("a"), *to_describe("b"))
     .sort("month")
 )
-
 print(out)
 # # --8<-- [end:df_pl]
