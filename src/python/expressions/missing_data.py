@@ -129,3 +129,46 @@ df_pd_nat = pd.DataFrame([pd.Timestamp("2023"), np.nan], columns=["col"])
 print(df_pd_nat.dtypes, end="\n" * 2)
 print(df_pd_nat)
 # --8<-- [end:pd_nat]
+
+
+# --8<-- [start:setup2]
+data2 = {"col1": np.random.rand(10)}
+# --8<-- [end:setup2]
+
+# --8<-- [start:df_pl2]
+df_pl2 = (
+    pl.DataFrame(data2)
+    .with_row_count("row_nr")
+    .select(pl.when(~pl.col("row_nr").is_in([4, 5, 6])).then((pl.col("col1"))))
+)
+print(df_pl2)
+# --8<-- [end:df_pl2]
+
+
+# --8<-- [start:df_pd2]
+
+
+df_pd2 = pd.DataFrame(data2).assign(
+    col1=lambda df_: df_.col1.where(~df_.index.isin([4, 5, 6]), np.nan)
+)
+print(df_pd2)
+# --8<-- [end:df_pd2]
+
+# --8<-- [start:df_pl_more_interp]
+out_pl = df_pl2.with_columns(
+    linear=pl.col("col1").interpolate(method="linear"),
+    nearest=pl.col("col1").interpolate(method="nearest"),
+)
+print(out_pl)
+# --8<-- [end:df_pl_more_interp]
+
+# --8<-- [start:df_pd_more_interp]
+out_pd = df_pd2.assign(
+    linear=lambda df_: df_.col1.interpolate(method="linear"),
+    nearest=lambda df_: df_.col1.interpolate(method="nearest"),
+    quadratic=lambda df_: df_.col1.interpolate(method="quadratic"),
+    poly_order3=lambda df_: df_.col1.interpolate(method="polynomial", order=3),
+    spline_order5=lambda df_: df_.col1.interpolate(method="spline", order=5),
+)
+print(out_pd)
+# --8<-- [end:df_pd_more_interp]
