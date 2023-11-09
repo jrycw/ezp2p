@@ -23,14 +23,17 @@ nav:
     - expressions/functions.md
     - expressions/casting.md
     - expressions/strings.md
-    - expressions/lists.md
     - expressions/aggregation.md
+    - expressions/missing_data.md
     - expressions/window_functions.md
-    - expressions/folds.md
+    - expressions/lists.md
     - expressions/structs.md
+    - expressions/folds.md
   - Topics:
+    - topics/time_series.md
     - topics/temporal.md
-    - topics/missing_data.md
+  - Breeze:
+    - breeze/expr_describe.md
 
 # Theme
 theme:
